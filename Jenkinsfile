@@ -2,15 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                sh 'npm install'
             }
         }
-        stage("Create a file and read it"){
-            steps{
-                sh 'echo "Hello from the file:)"> hello.txt'
-                sh 'cat hello.txt'
+        stage('Run') {
+            steps {
+                sh 'npm start'
             }
         }
     }
